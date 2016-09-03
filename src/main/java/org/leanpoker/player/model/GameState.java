@@ -4,6 +4,8 @@ import java.util.List;
 
 public class GameState {
 
+    private PokerBot ourPokerBot;
+
     public String getTournament_id() {
         return tournament_id;
     }
@@ -122,12 +124,20 @@ public class GameState {
     private List<PokerBot> players;
     private List<Card> community_cards;
 
-    public PokerBot getOurPokerBot(){
-        for(PokerBot bot : players){
-            if(!bot.getCards().isEmpty()){
+    public PokerBot getOurPokerBot() {
+        if (ourPokerBot != null) {
+            return ourPokerBot;
+        }
+        for (PokerBot bot : players) {
+            if (!bot.getCards().isEmpty()) {
                 return bot;
-            }                
+            }
         }
         return null;
+    }
+
+    public GameState setOurPokerBot(PokerBot ourPokerBot) {
+        this.ourPokerBot = ourPokerBot;
+        return this;
     }
 }
