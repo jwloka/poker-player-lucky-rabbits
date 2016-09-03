@@ -32,7 +32,6 @@ public class Player {
         both.addAll(comCards);
 
         Cards bothCards = new Cards(both);
-
         Cards ourCards = new Cards(cards);
 
         if (bothCards.hasPair()) {
