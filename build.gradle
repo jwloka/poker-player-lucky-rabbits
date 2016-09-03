@@ -39,6 +39,8 @@ buildscript {
 
 dependencies {
     testCompile 'junit:junit:4.11'
+
+    compile 'org.projectlombok:lombok:1.16.10'
     compile 'com.google.code.gson:gson:2.2.4'
     def tomcatVersion = '7.0.11'
 

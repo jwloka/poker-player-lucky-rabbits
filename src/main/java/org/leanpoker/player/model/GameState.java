@@ -3,34 +3,22 @@ package org.leanpoker.player.model;
 import java.util.List;
 
 public class GameState {
-    private int tournamentId;
-    private int gameId;
-    private int round;
-    private int betIndex;
-    private int smallBlind;
-    private int currentBuyIn;
-    private int pot;
-    private int minimumRaise;
-    private int dealerId;
-    private int orbits;
-    private int inActionId;
-    private List<PokerBot> allBots;
-    private List<Card> communityCards;
 
-    public int getTournamentId() {
-        return tournamentId;
+
+    public String getTournament_id() {
+        return tournament_id;
     }
 
-    public void setTournamentId(int tournamentId) {
-        this.tournamentId = tournamentId;
+    public void setTournament_id(String tournament_id) {
+        this.tournament_id = tournament_id;
     }
 
-    public int getGameId() {
-        return gameId;
+    public String getGame_id() {
+        return game_id;
     }
 
-    public void setGameId(int gameId) {
-        this.gameId = gameId;
+    public void setGame_id(String game_id) {
+        this.game_id = game_id;
     }
 
     public int getRound() {
@@ -41,28 +29,28 @@ public class GameState {
         this.round = round;
     }
 
-    public int getBetIndex() {
-        return betIndex;
+    public int getBet_index() {
+        return bet_index;
     }
 
-    public void setBetIndex(int betIndex) {
-        this.betIndex = betIndex;
+    public void setBet_index(int bet_index) {
+        this.bet_index = bet_index;
     }
 
-    public int getSmallBlind() {
-        return smallBlind;
+    public int getSmall_blind() {
+        return small_blind;
     }
 
-    public void setSmallBlind(int smallBlind) {
-        this.smallBlind = smallBlind;
+    public void setSmall_blind(int small_blind) {
+        this.small_blind = small_blind;
     }
 
-    public int getCurrentBuyIn() {
-        return currentBuyIn;
+    public int getCurrent_buy_in() {
+        return current_buy_in;
     }
 
-    public void setCurrentBuyIn(int currentBuyIn) {
-        this.currentBuyIn = currentBuyIn;
+    public void setCurrent_buy_in(int current_buy_in) {
+        this.current_buy_in = current_buy_in;
     }
 
     public int getPot() {
@@ -73,20 +61,20 @@ public class GameState {
         this.pot = pot;
     }
 
-    public int getMinimumRaise() {
-        return minimumRaise;
+    public int getMinimum_raise() {
+        return minimum_raise;
     }
 
-    public void setMinimumRaise(int minimumRaise) {
-        this.minimumRaise = minimumRaise;
+    public void setMinimum_raise(int minimum_raise) {
+        this.minimum_raise = minimum_raise;
     }
 
-    public int getDealerId() {
-        return dealerId;
+    public int getDealer() {
+        return dealer;
     }
 
-    public void setDealerId(int dealerId) {
-        this.dealerId = dealerId;
+    public void setDealer(int dealer) {
+        this.dealer = dealer;
     }
 
     public int getOrbits() {
@@ -97,32 +85,46 @@ public class GameState {
         this.orbits = orbits;
     }
 
-    public int getInActionId() {
-        return inActionId;
+    public int getIn_action() {
+        return in_action;
     }
 
-    public void setInActionId(int inActionId) {
-        this.inActionId = inActionId;
+    public void setIn_action(int in_action) {
+        this.in_action = in_action;
     }
 
-    public List<PokerBot> getAllBots() {
-        return allBots;
+    public List<PokerBot> getPlayers() {
+        return players;
     }
 
-    public void setAllBots(List<PokerBot> allBots) {
-        this.allBots = allBots;
+    public void setPlayers(List<PokerBot> players) {
+        this.players = players;
     }
 
-    public List<Card> getCommunityCards() {
-        return communityCards;
+    public List<Card> getCommunity_cards() {
+        return community_cards;
     }
 
-    public void setCommunityCards(List<Card> communityCards) {
-        this.communityCards = communityCards;
+    public void setCommunity_cards(List<Card> community_cards) {
+        this.community_cards = community_cards;
     }
+
+    private String tournament_id;
+    private String game_id;
+    private int round;
+    private int bet_index;
+    private int small_blind;
+    private int current_buy_in;
+    private int pot;
+    private int minimum_raise;
+    private int dealer;
+    private int orbits;
+    private int in_action;
+    private List<PokerBot> players;
+    private List<Card> community_cards;
 
     public PokerBot getOurPokerBot(){
-        for(PokerBot bot : allBots){
+        for(PokerBot bot : players){
             if(!bot.getCards().isEmpty()){
                 return bot;
             }                
