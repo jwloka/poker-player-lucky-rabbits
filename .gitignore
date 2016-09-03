@@ -6,4 +6,5 @@
 build
 .gradle
 .idea
+classes
 poker-player-java.iml
