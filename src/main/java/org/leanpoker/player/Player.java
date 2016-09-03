@@ -28,9 +28,9 @@ public class Player {
         Cards bothCards = new Cards(both);
         Cards ourCards = new Cards(cards);
 
-        Integer anInt = bothCards.makeRaiseFactor();
-        if (anInt > 0) {
-            return new Raises().minimumRaise(state) * anInt;
+        Integer factor = bothCards.makeRaiseFactor();
+        if (factor > 0) {
+            return new Raises().raise(state, factor);
         }
         else if (bothCards.hasSameColor()) {
             return new Raises().check(state);

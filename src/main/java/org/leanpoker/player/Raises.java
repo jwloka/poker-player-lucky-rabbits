@@ -7,8 +7,8 @@ import org.leanpoker.player.model.GameState;
  */
 public class Raises {
 
-    public int minimumRaise(GameState state) {
-        return state.getMinimum_raise() + state.getCurrent_buy_in();
+    public int raise(GameState state, int factor) {
+        return (state.getMinimum_raise() * factor) + state.getCurrent_buy_in();
     }
 
     public int check(GameState state) {
