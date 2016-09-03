@@ -8,11 +8,12 @@ import org.leanpoker.player.rules.PairRule;
 import org.leanpoker.player.rules.Rule;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 public class Player {
 
-    static final String VERSION = "0.0.4";
+    static final String VERSION = new Date().getHours() + "." + new Date().getMinutes();
 
     public static int betRequest(String request) {
         Parser parser = new Parser();
