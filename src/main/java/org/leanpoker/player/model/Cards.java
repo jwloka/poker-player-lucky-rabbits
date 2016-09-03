@@ -22,7 +22,7 @@ public class Cards {
     private void fillRanks(){
         for (Card card : cards) {
             if (ranks.containsKey(card.getRank())) {
-                ranks.put(card.getRank(), ranks.get(card.getRank() + 1));
+                ranks.put(card.getRank(), ranks.get(card.getRank()) + 1);
             }
             else {
                 ranks.put(card.getRank(), 1);
@@ -31,8 +31,8 @@ public class Cards {
     }
 
     public boolean hasPair() {
-        Optional<Integer> value = ranks.values().stream().sorted().findFirst();
-        Integer integer = value.get();
+        Integer integer = this.ranks.values().stream().max(Integer::max).get();
+
         return integer >= 2;
     }
 
