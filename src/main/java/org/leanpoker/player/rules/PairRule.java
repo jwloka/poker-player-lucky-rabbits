@@ -4,6 +4,7 @@ import org.leanpoker.player.model.Card;
 import org.leanpoker.player.model.GameState;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class PairRule extends Rule {
@@ -11,15 +12,14 @@ public class PairRule extends Rule {
         super(state);
     }
 
+    @Override
     public int apply() {
-        Map<String, Integer> rankMap = new HashMap<>();
-        String curRank = null;
-        for (Card cur : state.getOurPokerBot().getCards()) {
-            curRank = cur.getRank();
-            if (rankMap.containsKey(curRank)) {
+        List<Card> cards = state.getOurPokerBot().getCards();
+        if(cards.size() == 2){
+            Card card1 = cards.get(0);
+            Card card2 = cards.get(1);
+            if(card1.getRank().equalsIgnoreCase(card2.getRank())){
                 return descision.getRaise();
-            } else {
-                rankMap.put(curRank, 1);
             }
         }
         return descision.getFold();
