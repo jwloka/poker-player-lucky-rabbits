@@ -12,6 +12,8 @@ import org.leanpoker.player.rules.Rule;
 import org.leanpoker.player.rules.StableRule;
 
 import java.util.Date;
+import java.util.List;
+import org.leanpoker.player.model.Card;
 
 public class Player {
 
@@ -21,7 +23,8 @@ public class Player {
         Parser parser = new Parser();
         GameState state = parser.parse(request);
 
-
+        printHand(state);
+        
         Rule result;
         if ((state.getOurPokerBot().getStack() + state.getBet_index()) / state.getSmall_blind() <= 10) {
             result = new HighBlindsRule(state);
@@ -37,5 +40,14 @@ public class Player {
     }
 
     public static void showdown(JsonElement game) {
+    }
+
+    private static void printHand(GameState state) {
+        List<Card> cards = state.getOurPokerBot().getHole_cards();
+        if (cards.size() == 2) {
+            Card card1 = cards.get(0);
+            Card card2 = cards.get(1);
+            System.out.println(card1.toString() + ", " + card2.toString());
+        }
     }
 }
