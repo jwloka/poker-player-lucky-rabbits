@@ -13,38 +13,48 @@ import static org.junit.Assert.*;
 public class CardsTest {
 
     @Test
-    public void twoDiffCardsHasPairFalse() {
+    public void makeRaiseFactorWithNoSameRankCardsReturnsZero() {
         List<Card>  elements = Arrays.asList(new Card("7", "spade"), new Card("6", "spade"));
+
         Cards cards = new Cards(elements);
-//        assertFalse(cards.hasPair());
+
+        assertEquals(0, cards.makeRaiseFactor());
     }
 
     @Test
-    public void twoPairAndHasPairTrue() {
+    public void makeRaiseFactorWithTwoSameRankCardsReturnsOne() {
         List<Card>  elements = Arrays.asList(new Card("7", "spade"), new Card("7", "hearts"));
+
         Cards cards = new Cards(elements);
-//        assertTrue(cards.hasPair());
+
+        assertEquals(1, cards.makeRaiseFactor());
     }
 
     @Test
-    public void threePairAndHasPairTrue() {
-        List<Card>  elements = Arrays.asList(new Card("6", "spade"), new Card("7", "spade"), new Card("7", "hearts"));
+    public void makeRaiseFactorWithThreeSameRankCardsReturnsThree() {
+        List<Card>  elements = Arrays.asList(new Card("7", "spade"), new Card("7", "spade"), new Card("7", "hearts"));
+
         Cards cards = new Cards(elements);
-//        assertTrue(cards.hasPair());
+
+        assertEquals(2, cards.makeRaiseFactor());
     }
 
     @Test
-    public void threeNoPairFalse() {
+    public void numSameColorWithThreeDifferentCardsReturnsZero() {
         List<Card>  elements = Arrays.asList(new Card("6", "spade"), new Card("9", "diamonds"), new Card("7", "hearts"));
+
         Cards cards = new Cards(elements);
-        assertFalse(cards.makeRaiseFactor() < 0);
+
+        assertEquals(0, cards.numSameColor());
     }
 
     @Test
-    public void testTwoCardsHasSameColorTrue() {
+    public void numSameColorWithTwoCardsSameColorReturnsOne() {
         List<Card>  elements = Arrays.asList(new Card("7", "spade"), new Card("6", "spade"));
+
         Cards cards = new Cards(elements);
-        //assertTrue(cards.hasSameColor());
+
+        assertEquals(1, cards.numSameColor());
     }
 
     @Test
