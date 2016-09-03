@@ -22,8 +22,11 @@ public class PairRule extends AbstractRule {
         if (cards.size() == 2) {
             Card card1 = cards.get(0);
             Card card2 = cards.get(1);
-            if (card1.getRank().equalsIgnoreCase(card2.getRank()) && RANK_TO_NUMBER.get(card1.getRank()) >= 7) {
-                return descision.getRaise();
+            if (card1.getRank().equalsIgnoreCase(card2.getRank())) {
+                if (RANK_TO_NUMBER.get(card1.getRank()) >= 7) {
+                    return descision.getRaise();
+                }
+                return descision.getCheck();
             }
         }
         return descision.getFold();
