@@ -4,7 +4,10 @@ import com.google.gson.JsonElement;
 import org.leanpoker.player.data.Parser;
 import org.leanpoker.player.model.Card;
 import org.leanpoker.player.model.GameState;
+import org.leanpoker.player.rules.PairRule;
+import org.leanpoker.player.rules.Rule;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class Player {
@@ -14,13 +17,7 @@ public class Player {
     public static int betRequest(String request) {
         Parser parser = new Parser();
         GameState state = parser.parse(request);
-        List<Card> cards = state.getOurPokerBot().getCards();
-        int bet = state.getCurrent_buy_in() + state.getMinimum_raise();
-
-        if (new DecisionEngine().makeBet(cards)) {
-            return bet;
-        }
-        return 0;
+        return new DecisionEngine(Arrays.<Rule>asList(new PairRule(state))).makeBet();
     }
 
     public static void showdown(JsonElement game) {

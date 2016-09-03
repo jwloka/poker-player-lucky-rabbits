@@ -4,7 +4,6 @@ import java.util.List;
 
 public class GameState {
 
-
     public String getTournament_id() {
         return tournament_id;
     }

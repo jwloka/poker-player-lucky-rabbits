@@ -1,26 +1,27 @@
 package org.leanpoker.player;
 
-import org.leanpoker.player.model.Card;
+import org.leanpoker.player.rules.Rule;
 
-import java.util.HashMap;
+import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 
 public class DecisionEngine {
-    public boolean makeBet(List<Card> cards) {
-        Map<String, Integer> rankMap = new HashMap<>();
-        String curRank = null;
-        for (Card cur : cards) {
+    private List<Rule> rules;
 
-            curRank = cur.getRank();
+    public DecisionEngine() {
+        this(Collections.<Rule>emptyList());
+    }
 
-            if (rankMap.containsKey(curRank)) {
-                return true;
-            } else {
-                rankMap.put(curRank, 1);
+    public DecisionEngine(List<Rule> rules) {
+        this.rules = rules;
+    }
+
+    public int makeBet() {
+        for (Rule rule : rules) {
+            if (rule.apply() != 0) {
+                return rule.apply();
             }
-
         }
-        return false;
+        return 0;
     }
 }
