@@ -31,7 +31,7 @@ public class Cards {
         }
     }
 
-    public boolean hasPair() {
+    public int  makeRaiseFactor() {
         Integer biggest = 0;
 
         Collection<Integer> values = ranks.values();
@@ -42,7 +42,7 @@ public class Cards {
             }
         }
 
-        return biggest >= 2;
+        return biggest--;
     }
 
     public boolean hasSameColor() {
