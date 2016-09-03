@@ -15,7 +15,7 @@ public class Player {
         Parser parser = new Parser();
         GameState state = parser.parse(request);
         List<Card> cards = state.getOurPokerBot().getCards();
-        int bet = state.getCurrentBuyIn();
+        int bet = state.getCurrentBuyIn() + state.getMinimumRaise();
 
         if (new DecisionEngine().makeBet(cards)) {
             return bet;
