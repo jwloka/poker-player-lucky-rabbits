@@ -25,6 +25,7 @@ public class MinRule implements Rule {
             min = Math.min(act, min);
         }
 
+        System.out.println("MinRule returns: " + min);
         return min;
     }
 }

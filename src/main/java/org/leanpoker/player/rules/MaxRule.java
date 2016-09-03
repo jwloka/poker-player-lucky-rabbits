@@ -25,6 +25,8 @@ public class MaxRule implements Rule {
             max = Math.max(act, max);
         }
 
+        
+        System.out.println("MaxRule returns: " + max);
         return max;
     }
 }
