@@ -22,6 +22,7 @@ public class PlayerServlet extends HttpServlet {
         if (req.getParameter("action").equals("bet_request")) {
             String gameState = req.getParameter("game_state");
 
+            System.out.println("BET");
             System.out.println(gameState);
 
             resp.getWriter().print(Player.betRequest(gameState));
@@ -29,6 +30,7 @@ public class PlayerServlet extends HttpServlet {
         if (req.getParameter("action").equals("showdown")) {
             String gameState = req.getParameter("game_state");
 
+            System.out.println("SHOWDOWN");
             System.out.println(gameState);
 
             Player.showdown(new JsonParser().parse(gameState));
