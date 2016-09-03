@@ -1,10 +1,10 @@
 package org.leanpoker.player.model;
 
 public class GameState {
-    private User user;
+    private PokerBot user;
 
-    public User getUser() {
-        return new User();
+    public PokerBot getUser() {
+        return new PokerBot();
     }
 
     public int getCurrentBuyIn() {

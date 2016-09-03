@@ -3,7 +3,7 @@ package org.leanpoker.player.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class User {
+public class PokerBot {
     private int id;
     private String status;
     private String version;
