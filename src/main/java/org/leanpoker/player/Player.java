@@ -32,7 +32,7 @@ public class Player {
             return new Raises().minimumRaise(state);
         }
         else if (ourCards.hasSameColor()) {
-            return state.getCurrent_buy_in();
+            return new Raises().check(state);
         }
         else {
             return 0;
