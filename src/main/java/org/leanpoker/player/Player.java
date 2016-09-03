@@ -9,6 +9,7 @@ import org.leanpoker.player.model.PokerBot;
 import org.leanpoker.player.rules.PairRule;
 import org.leanpoker.player.rules.Rule;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
@@ -24,14 +25,20 @@ public class Player {
         GameState state = parser.parse(request);
 
         List<Card> cards = state.getOurPokerBot().getHole_cards();
+        List<Card> comCards = state.getCommunity_cards();
+
+        List<Card> both = new ArrayList<>();
+        both.addAll(cards);
+        both.addAll(comCards);
+
+        Cards bothCards = new Cards(both);
 
         Cards ourCards = new Cards(cards);
 
-
-        if (ourCards.hasPair()) {
+        if (bothCards.hasPair()) {
             return new Raises().minimumRaise(state);
         }
-        else if (ourCards.hasSameColor()) {
+        else if (bothCards.hasSameColor()) {
             return new Raises().check(state);
         }
         else {
