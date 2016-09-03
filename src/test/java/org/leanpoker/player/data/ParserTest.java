@@ -18,6 +18,8 @@ public class ParserTest {
         GameState result = cut.parse(gameStateAsStream());
         // then
         assertThat(result, notNullValue());
+        assertThat(result.getOurPokerBot(), notNullValue());
+        assertThat(result.getOurPokerBot().getHole_cards(), notNullValue());
     }
 
     private InputStreamReader gameStateAsStream() {

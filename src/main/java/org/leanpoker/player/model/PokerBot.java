@@ -9,7 +9,7 @@ public class PokerBot {
     private String version;
     private int stack;
     private int bet;
-    private List<Card> cards = new ArrayList<>();
+    private List<Card> hole_cards;
 
     public int getId() {
         return id;
@@ -51,12 +51,11 @@ public class PokerBot {
         this.bet = bet;
     }
 
-    public List<Card> getCards() {
-        return cards;
+    public List<Card> getHole_cards() {
+        return hole_cards;
     }
 
-    public PokerBot setCards(List<Card> cards) {
-        this.cards = cards;
-        return this;
+    public void setHole_cards(List<Card> hole_cards) {
+        this.hole_cards = hole_cards;
     }
 }
