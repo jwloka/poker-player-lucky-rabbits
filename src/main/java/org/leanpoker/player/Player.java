@@ -5,6 +5,8 @@ import org.leanpoker.player.data.Parser;
 import org.leanpoker.player.model.Card;
 import org.leanpoker.player.model.Cards;
 import org.leanpoker.player.model.GameState;
+import org.leanpoker.player.rules.PairRule;
+import org.leanpoker.player.rules.SuitedRule;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -28,12 +30,15 @@ public class Player {
         Cards bothCards = new Cards(both);
         Cards ourCards = new Cards(cards);
 
+        int suited = new SuitedRule(state).apply();
+        int pair = new PairRule(state).apply();
+        int maxSuitedPair = Math.max(suited, pair);
         Integer factor = ourCards.makeRaiseFactor();
         if (factor > 0) {
             return new Raises().raise(state, factor);
         }
-        else if (ourCards.hasSameColor()) {
-            return new Raises().check(state);
+        else if (maxSuitedPair > 0) {
+            return maxSuitedPair;
         }
         else {
             return 0;

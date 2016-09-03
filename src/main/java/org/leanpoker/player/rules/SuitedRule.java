@@ -7,8 +7,9 @@ import java.util.List;
 
 /**
  * This rule will check / follow the current bet when having the same color
- * and the cards follow each other. 
+ * and the cards follow each other.
  * For example: 5 hearts & 6 hearts
+ *
  * @author Administrator
  */
 public class SuitedRule extends Rule {
@@ -20,11 +21,11 @@ public class SuitedRule extends Rule {
     @Override
     public int apply() {
         List<Card> cards = state.getOurPokerBot().getHole_cards();
-        if(cards.size() == 2){
+        if (cards.size() == 2) {
             Card card1 = cards.get(0);
             Card card2 = cards.get(1);
-            
-            if(followEachOtherUp(card1, card2) && suited(card1, card2)){
+
+            if (followEachOtherUp(card1, card2) && suited(card1, card2)) {
                 return descision.getRaise();
             }
         }
