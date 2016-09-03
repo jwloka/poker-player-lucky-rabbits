@@ -121,5 +121,12 @@ public class GameState {
         this.communityCards = communityCards;
     }
 
-   
+    public PokerBot getOurPokerBot(){
+        for(PokerBot bot : allBots){
+            if(!bot.getCards().isEmpty()){
+                return bot;
+            }                
+        }
+        return null;
+    }
 }
