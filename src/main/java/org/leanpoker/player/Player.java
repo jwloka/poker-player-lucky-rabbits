@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Player {
 
-    static final String VERSION = "Default Java folding player";
+    static final String VERSION = "0.0.1";
 
     public static int betRequest(String request) {
         Parser parser = new Parser();
