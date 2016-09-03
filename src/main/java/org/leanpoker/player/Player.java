@@ -12,12 +12,13 @@ import java.util.List;
 
 public class Player {
 
-    static final String VERSION = "0.0.3";
+    static final String VERSION = "0.0.4";
 
     public static int betRequest(String request) {
         Parser parser = new Parser();
         GameState state = parser.parse(request);
-        return new DecisionEngine(Arrays.<Rule>asList(new PairRule(state))).makeBet();
+
+        return state.getCurrent_buy_in();
     }
 
     public static void showdown(JsonElement game) {
