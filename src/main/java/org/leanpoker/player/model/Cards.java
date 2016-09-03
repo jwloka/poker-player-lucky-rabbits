@@ -1,5 +1,6 @@
 package org.leanpoker.player.model;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -31,9 +32,17 @@ public class Cards {
     }
 
     public boolean hasPair() {
-        Integer integer = this.ranks.values().stream().max(Integer::max).get();
+        Integer biggest = 0;
 
-        return integer >= 2;
+        Collection<Integer> values = ranks.values();
+
+        for (Integer value : values) {
+            if (biggest < value) {
+                biggest = value;
+            }
+        }
+
+        return biggest >= 2;
     }
 
     public boolean hasSameColor() {
