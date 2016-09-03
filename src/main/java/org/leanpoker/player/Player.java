@@ -6,6 +6,8 @@ import org.leanpoker.player.model.GameState;
 import org.leanpoker.player.rules.HighBlindsRule;
 import org.leanpoker.player.rules.MaxRule;
 import org.leanpoker.player.rules.MaxTenPercentWithTwoHeadsRule;
+import org.leanpoker.player.rules.MinRaiseRule;
+import org.leanpoker.player.rules.MinRule;
 import org.leanpoker.player.rules.Rule;
 import org.leanpoker.player.rules.StableRule;
 
@@ -26,7 +28,10 @@ public class Player {
         } else {
             result = new MaxRule(
                 new StableRule(state),
-                new MaxTenPercentWithTwoHeadsRule(state));
+                new MinRule(
+                    new MinRaiseRule(state),
+                    new MaxTenPercentWithTwoHeadsRule(state))
+            );
         }
         return  result.apply();
     }
