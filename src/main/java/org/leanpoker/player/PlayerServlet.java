@@ -23,7 +23,7 @@ public class PlayerServlet extends HttpServlet {
             String gameState = req.getParameter("game_state");
 
             System.out.println("BET");
-            System.out.println(gameState);
+//            System.out.println(gameState);
 
             resp.getWriter().print(Player.betRequest(gameState));
         }
@@ -31,7 +31,7 @@ public class PlayerServlet extends HttpServlet {
             String gameState = req.getParameter("game_state");
 
             System.out.println("SHOWDOWN");
-            System.out.println(gameState);
+//            System.out.println(gameState);
 
             Player.showdown(new JsonParser().parse(gameState));
         }

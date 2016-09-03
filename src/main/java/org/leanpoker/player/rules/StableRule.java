@@ -18,15 +18,20 @@ public class StableRule extends AbstractRule {
 
     @Override
     public int apply() {
+        int result;
+        
         List<Card> cards = state.getOurPokerBot().getHole_cards();
 
         Cards ourCards = new Cards(cards);
 
         Integer factor = ourCards.makeRaiseFactor();
         if (factor > 0) {
-            return new Raises().raise(state, factor);
+            result = new Raises().raise(state, factor);
         } else {
-            return 0;
+            result = 0;
         }
+        
+        System.out.println("StableRule returns: " + result);
+        return result;
     }
 }

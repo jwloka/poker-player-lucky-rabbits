@@ -23,14 +23,16 @@ public class HighBlindsRule extends AbstractRule {
 
     @Override
     public int apply() {
+        int result = descision.getFold();
         List<Card> cards = state.getOurPokerBot().getHole_cards();
         if (cards.size() == 2) {
             Card card1 = cards.get(0);
             Card card2 = cards.get(1);
             if (PICTURE_CARDS.contains(card1.getRank()) || PICTURE_CARDS.contains(card2.getRank())) {
-                return descision.getCheck();
+                result = descision.getCheck();
             }
         }
-        return descision.getFold();
+        System.out.println("HighBlindsRule returns: " + result);
+        return result;
     }
 }
