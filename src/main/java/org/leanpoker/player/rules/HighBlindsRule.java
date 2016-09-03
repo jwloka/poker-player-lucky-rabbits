@@ -1,9 +1,9 @@
 package org.leanpoker.player.rules;
 
-import java.util.Arrays;
 import org.leanpoker.player.model.Card;
 import org.leanpoker.player.model.GameState;
 
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -14,9 +14,9 @@ import java.util.List;
  * @author Administrator
  */
 public class HighBlindsRule extends AbstractRule {
-    
+
     private static final List<String> PICTURE_CARDS = Arrays.asList("J", "Q", "K", "A");
-    
+
     public HighBlindsRule(GameState state) {
         super(state);
     }

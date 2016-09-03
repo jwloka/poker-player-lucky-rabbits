@@ -3,6 +3,7 @@ package org.leanpoker.player;
 import com.google.gson.JsonElement;
 import org.leanpoker.player.data.Parser;
 import org.leanpoker.player.model.GameState;
+import org.leanpoker.player.rules.BartsRuleFactory;
 import org.leanpoker.player.rules.Rule;
 import org.leanpoker.player.rules.StableRule;
 
@@ -16,7 +17,8 @@ public class Player {
         Parser parser = new Parser();
         GameState state = parser.parse(request);
 
-        Rule activeRule = new StableRule(state);
+
+        Rule activeRule = new BartsRuleFactory().conservativeOrDaring(state);
 
         return  activeRule.apply();
     }
