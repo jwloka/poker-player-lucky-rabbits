@@ -30,7 +30,8 @@ public class Player {
 
         if (ourCards.hasPair()) {
             return state.getMinimum_raise() + state.getCurrent_buy_in();
-        } else if (ourCards.hasSameColor()) {
+        }
+        else if (ourCards.hasSameColor()) {
             return state.getCurrent_buy_in();
         }
         else {
