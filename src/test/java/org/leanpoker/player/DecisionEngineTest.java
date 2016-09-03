@@ -15,4 +15,11 @@ public class DecisionEngineTest {
 
         assertFalse(new DecisionEngine().makeBet(target));
     }
+
+    @Test
+    public void makeBetWithDoubleHandReturnsTrue() throws Exception {
+        List<Card> target = Arrays.asList(new Card("6", "hearts"), new Card("6", "clubs"));
+
+        assertTrue(new DecisionEngine().makeBet(target));
+    }
 }

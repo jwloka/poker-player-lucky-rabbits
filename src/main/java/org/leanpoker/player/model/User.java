@@ -9,7 +9,7 @@ public class User {
     private String version;
     private int stack;
     private int bet;
-    private List<Card> cards = new ArrayList<Card>();
+    private List<Card> cards = new ArrayList<>();
 
     public int getId() {
         return id;
