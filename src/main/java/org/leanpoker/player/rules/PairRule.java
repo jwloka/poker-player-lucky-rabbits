@@ -1,9 +1,10 @@
 package org.leanpoker.player.rules;
 
+import java.util.HashMap;
 import org.leanpoker.player.model.Card;
 import org.leanpoker.player.model.GameState;
 
-import java.util.List;
+import java.util.Map;
 
 /**
  * This rule will raise when our bot has two cards with the same rank

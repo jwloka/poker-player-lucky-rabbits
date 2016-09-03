@@ -19,7 +19,7 @@ public class SuitedRule extends Rule {
 
     @Override
     public int apply() {
-        List<Card> cards = state.getOurPokerBot().getCards();
+        List<Card> cards = state.getOurPokerBot().getHole_cards();
         if(cards.size() == 2){
             Card card1 = cards.get(0);
             Card card2 = cards.get(1);
