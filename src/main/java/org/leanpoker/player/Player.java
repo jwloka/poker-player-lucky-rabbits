@@ -31,8 +31,6 @@ public class Player {
         Integer factor = ourCards.makeRaiseFactor();
         if (factor > 0) {
             return new Raises().raise(state, factor);
-        } else if (ourCards.hasSameColor()) {
-            return new Raises().check(state);
         } else {
             return 0;
         }
