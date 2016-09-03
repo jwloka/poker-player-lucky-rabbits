@@ -6,6 +6,9 @@ public class GameState {
 
     private PokerBot ourPokerBot;
 
+    public GameState() {
+    }
+
     public GameState(int buyIn, int minRaise) {
         this.current_buy_in = buyIn;
         this.minimum_raise = minRaise;
