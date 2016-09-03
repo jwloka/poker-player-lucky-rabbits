@@ -4,6 +4,8 @@ import com.google.gson.JsonElement;
 import org.leanpoker.player.data.Parser;
 import org.leanpoker.player.model.GameState;
 import org.leanpoker.player.rules.HighBlindsRule;
+import org.leanpoker.player.rules.MaxRule;
+import org.leanpoker.player.rules.MaxTenPercentWithTwoHeadsRule;
 import org.leanpoker.player.rules.Rule;
 import org.leanpoker.player.rules.StableRule;
 
@@ -22,7 +24,9 @@ public class Player {
         if ((state.getOurPokerBot().getStack() + state.getBet_index()) / state.getSmall_blind() <= 10) {
             result = new HighBlindsRule(state);
         } else {
-            result = new StableRule(state);
+            result = new MaxRule(
+                new StableRule(state),
+                new MaxTenPercentWithTwoHeadsRule(state));
         }
         return  result.apply();
     }

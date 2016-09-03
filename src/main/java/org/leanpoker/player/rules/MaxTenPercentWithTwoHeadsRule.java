@@ -9,12 +9,12 @@ import java.util.List;
 /**
  *
  */
-public class MaxTenPercentWithOfficerRule extends AbstractRule {
+public class MaxTenPercentWithTwoHeadsRule extends AbstractRule {
 
     private static final List<String> heads = Arrays.asList("J", "Q", "K", "A");
 
 
-    public MaxTenPercentWithOfficerRule(GameState state) {
+    public MaxTenPercentWithTwoHeadsRule(GameState state) {
         super(state);
     }
 
@@ -24,11 +24,13 @@ public class MaxTenPercentWithOfficerRule extends AbstractRule {
         return useCards(cards);
     }
 
-    private int useCards(List<Card> cards) {
+    int useCards(List<Card> cards) {
         for (Card card : cards) {
-            heads.contains(card.getRank());
+            if (! heads.contains(card.getRank())) {
+                return 0;
+            }
         }
 
-        return 0;
+        return (int) (state.getOurPokerBot().getStack() * 0.1);
     }
 }
