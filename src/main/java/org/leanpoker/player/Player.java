@@ -13,7 +13,6 @@ import java.util.List;
 public class Player {
 
     static final String VERSION = new Date().getHours() + "." + new Date().getMinutes();
-    private static int anInt;
 
     public static int betRequest(String request) {
         Parser parser = new Parser();
@@ -29,7 +28,7 @@ public class Player {
         Cards bothCards = new Cards(both);
         Cards ourCards = new Cards(cards);
 
-        anInt = bothCards.makeRaiseFactor();
+        Integer anInt = bothCards.makeRaiseFactor();
         if (anInt > 0) {
             return new Raises().minimumRaise(state) * anInt;
         }
