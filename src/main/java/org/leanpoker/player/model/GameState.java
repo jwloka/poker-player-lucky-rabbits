@@ -129,7 +129,7 @@ public class GameState {
             return ourPokerBot;
         }
         for (PokerBot bot : players) {
-            if (!bot.getCards().isEmpty()) {
+            if (bot.getHole_cards() != null && !bot.getHole_cards().isEmpty()) {
                 return bot;
             }
         }

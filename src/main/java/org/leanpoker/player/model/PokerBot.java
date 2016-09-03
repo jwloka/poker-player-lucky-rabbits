@@ -1,6 +1,5 @@
 package org.leanpoker.player.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class PokerBot {
@@ -55,7 +54,8 @@ public class PokerBot {
         return hole_cards;
     }
 
-    public void setHole_cards(List<Card> hole_cards) {
+    public PokerBot setHole_cards(List<Card> hole_cards) {
         this.hole_cards = hole_cards;
+        return this;
     }
 }

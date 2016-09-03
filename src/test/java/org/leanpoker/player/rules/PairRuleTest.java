@@ -16,7 +16,7 @@ public class PairRuleTest {
     public void applyWithEmptyListReturnsFalse() throws Exception {
         List<Card> target = Arrays.asList();
 
-        assertFalse(new PairRule(new GameState().setOurPokerBot(new PokerBot().setCards(target))).apply() != 0);
+        assertFalse(new PairRule(new GameState().setOurPokerBot(new PokerBot().setHole_cards(target))).apply() != 0);
     }
 
 //    @Test
