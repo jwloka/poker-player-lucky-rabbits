@@ -16,7 +16,7 @@ public class PairRule extends Rule {
     public int apply() {
         Map<String, Integer> rankMap = new HashMap<>();
         String curRank = null;
-        for (Card cur : state.getOurPokerBot().getCards()) {
+        for (Card cur : state.getOurPokerBot().getHole_cards()) {
             curRank = cur.getRank();
             if (rankMap.containsKey(curRank)) {
                 return descision.getRaise();
