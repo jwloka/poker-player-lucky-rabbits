@@ -12,7 +12,7 @@ import java.util.List;
 
 public class Player {
 
-    static final String VERSION = "0.0.2";
+    static final String VERSION = "0.0.3";
 
     public static int betRequest(String request) {
         Parser parser = new Parser();
