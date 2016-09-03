@@ -1,10 +1,15 @@
 package org.leanpoker.player.data;
 
+import com.google.gson.Gson;
 import org.leanpoker.player.model.GameState;
 
-public class Parser {
+import java.io.Reader;
 
+public class Parser {
+    public GameState parse(Reader request) {
+        return new Gson().fromJson(request, GameState.class);
+    }
     public GameState parse(String request) {
-        return new GameState();
+        return new Gson().fromJson(request, GameState.class);
     }
 }
