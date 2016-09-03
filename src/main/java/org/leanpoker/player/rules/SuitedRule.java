@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author Administrator
  */
-public class SuitedRule extends Rule {
+public class SuitedRule extends AbstractRule {
 
     public SuitedRule(GameState state) {
         super(state);

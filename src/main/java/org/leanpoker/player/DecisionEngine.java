@@ -1,23 +1,23 @@
 package org.leanpoker.player;
 
-import org.leanpoker.player.rules.Rule;
+import org.leanpoker.player.rules.AbstractRule;
 
 import java.util.Collections;
 import java.util.List;
 
 public class DecisionEngine {
-    private List<Rule> rules;
+    private List<AbstractRule> rules;
 
     public DecisionEngine() {
-        this(Collections.<Rule>emptyList());
+        this(Collections.<AbstractRule>emptyList());
     }
 
-    public DecisionEngine(List<Rule> rules) {
+    public DecisionEngine(List<AbstractRule> rules) {
         this.rules = rules;
     }
 
     public int makeBet() {
-        for (Rule rule : rules) {
+        for (AbstractRule rule : rules) {
             if (rule.apply() != 0) {
                 return rule.apply();
             }

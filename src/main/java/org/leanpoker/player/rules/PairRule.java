@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author Administrator
  */
-public class PairRule extends Rule {
+public class PairRule extends AbstractRule {
     public PairRule(GameState state) {
         super(state);
     }
