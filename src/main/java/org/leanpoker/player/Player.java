@@ -11,7 +11,7 @@ public class Player {
 
     static final String VERSION = "Default Java folding player";
 
-    public static int betRequest(JsonElement request) {
+    public static int betRequest(String request) {
         Parser parser = new Parser();
         GameState state = parser.parse(request);
         List<Card> cards = state.getUser().getCards();
